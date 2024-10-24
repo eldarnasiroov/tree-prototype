@@ -11,12 +11,12 @@ interface TreeProps {
   nodes: TreeNode[];
 }
 
-const colors = {
-  1: "red",
-  2: "green",
-  3: "blue",
-  4: "yellow",
-  5: "purple",
+const colors: Record<string, string> = {
+  "1": "red",
+  "2": "green",
+  "3": "blue",
+  "4": "yellow",
+  "5": "purple",
 };
 
 // Компонент для одного узла дерева
@@ -52,7 +52,7 @@ const TreeNode: React.FC<{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: colors[depth as number],
+          backgroundColor: colors[depth],
         }}
       >
         {node.label}
