@@ -79,6 +79,7 @@ const TreeNode: React.FC<{
 
 // Основной компонент Tree
 const Tree: React.FC<TreeProps> = ({ nodes }) => {
+  console.log("🚀 ~ nodes:", nodes);
   const [isThirdChildOpen, setIsThirdChildOpen] = useState(false);
   const [depth, setDepth] = useState(1);
 
@@ -95,6 +96,9 @@ const Tree: React.FC<TreeProps> = ({ nodes }) => {
         style={{
           position: "absolute",
           left: isThirdChildOpen ? -((depth - 3) * 100) + "px" : "0px",
+          top: isThirdChildOpen
+            ? -((depth - 3) * 25 * (nodes[0]?.children?.length || 1)) + "px"
+            : "0px",
         }}
       >
         {nodes.map((node) => (
